@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src='./vue.js'></script>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+   <div id="ctrl">
+       <ul id="show" class="wrap">
+            <li class="block" v-for="n in counter" v-bind:style="styleObject"></li>
+        </ul>
+        <div class="wrap">
+            <button v-on:click="counter += 1">加一层</button>
+            <p>这个按钮被戳了{{counter}}次</p>
+        </div>
+   </div>
+
+    <script src="ventor/vue.js"></script>
+    <script>
+        var initWidth = 300;
+
+        var vm = new Vue({
+            el:'#ctrl',
+            data:{
+                counter:0,
+            },
+            computed:{
+                styleObject : function(){
+                    return {
+                        width: initWidth - this.counter * 20 +'px',
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
